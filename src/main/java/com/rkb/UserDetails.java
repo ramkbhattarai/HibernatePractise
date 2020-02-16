@@ -2,6 +2,7 @@ package com.rkb;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class UserDetails {
 	private int id;
 	private String username;
 	private LocalDateTime date;
-	private String address;
+	@Embedded
+	private Address address;
 	@Lob 
 	private String description; // for simple string hibernate has 255 characters but with Lob it says its a large object 
 	// and if its on top of string it will create clob (character large object) and for images ie Byte[] it will have Blob(Byte large object)
@@ -30,7 +32,7 @@ public class UserDetails {
 
 	
 
-	public UserDetails(int id, String username, LocalDateTime date, String address, String description,
+	public UserDetails(int id, String username, LocalDateTime date, Address address, String description,
 			boolean isActive) {
 		super();
 		this.id = id;
@@ -55,13 +57,13 @@ public class UserDetails {
 
 
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
 
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

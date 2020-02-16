@@ -6,16 +6,22 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.rkb.Address;
 import com.rkb.UserDetails;
 
 public class Test {
 
 	public static void main(String[] args) {
+		
+		Address addr = new Address();
+		addr.setCity("Banepa");
+		addr.setState("kavre");
+		addr.setStreet("Naladobato");
+		addr.setZipcode(1234);
 	UserDetails ud = new UserDetails();
-	ud.setId(1);
 	ud.setUsername("test1");
 	ud.setActive(new Boolean(true));
-	ud.setAddress("Nepal");
+	ud.setAddress(addr);
 	ud.setDescription("practise");
 	ud.setDate(LocalDateTime.now());
 	
