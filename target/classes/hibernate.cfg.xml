@@ -26,11 +26,12 @@
 		<!-- JDBC Stuff -->
 		<property name="hibernate.connection.username">postgres</property>
 		<property name = "hibernate.connection.password"></property>
-		<property name = "hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+		<property name = "hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate</property>
 		<property name ="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name = "hibernate.show_sql">false</property>
+		<property name = "hibernate.show_sql">true</property>
 		<property name ="hibernate.format_sql">false</property>
+		
 		
 		<!--  COnnection Pool. A method of speeding up database calls. Hibernate will create 10
 		connections to the database when it starts up and every time you create a session, the 
@@ -53,6 +54,7 @@
 		HOW DOES HIBERNATE INTERACT WITH YOUR SCHEMA: ..... QC
 		-->
 		
+		<mapping class="com.rkb.UserDetails"/>
 		
 	</session-factory>
 
