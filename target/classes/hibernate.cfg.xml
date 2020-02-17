@@ -59,6 +59,7 @@
 		<mapping class="com.rkb.inheritance.Vechile"/>
 		<mapping class="com.rkb.inheritance.TwoWheelers"/>
 		<mapping class="com.rkb.inheritance.FourWheelers"/>
+		<mapping class="com.rkb.statesOfObject.UserTest"/>
 	</session-factory>
 
 </hibernate-configuration>

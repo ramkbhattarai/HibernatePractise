@@ -13,6 +13,7 @@ import com.rkb.UserWithListOfAddress;
 import com.rkb.inheritance.FourWheelers;
 import com.rkb.inheritance.TwoWheelers;
 import com.rkb.inheritance.Vechile;
+import com.rkb.statesOfObject.UserTest;
 
 public class Test {
 
@@ -60,54 +61,71 @@ public class Test {
 	fv.setType("car");
 	fv.setName("apache");
 	
-	
+	UserTest usr = new UserTest();
+	usr.setName("Ram Krishna Bhattarai");
 	
 	SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session s = sf.openSession();
 		s.beginTransaction();
-		s.save(ud);
+//		s.save(ud);
+//		s.getTransaction().commit();
+//		s.close();
+//		
+//		ud = null;
+//		 s = sf.openSession();
+//		s.beginTransaction();
+//		ud = s.get(UserDetails.class, 1);
+//		System.out.println("User retrieved is "+ ud);
+//		s.close();
+//		
+//		 s = sf.openSession();
+//			s.beginTransaction();
+//			s.save(u);
+//			s.getTransaction().commit();
+//			s.close();
+//			
+//			u = null;
+//			 s = sf.openSession();
+//			s.beginTransaction();
+//			u = s.get(UserWithListOfAddress.class, 1);
+//			System.out.println("UserWithListOfAddress retrieved is "+ u);
+//			s.close();
+//			
+//			s = sf.openSession();
+//			s.beginTransaction();
+//			s.save(v);
+//			s.getTransaction().commit();
+//			s.close();
+//			
+//			s = sf.openSession();
+//			s.beginTransaction();
+//			s.save(tv);
+//			s.getTransaction().commit();
+//			s.close();
+//			
+//			s = sf.openSession();
+//			s.beginTransaction();
+//			s.save(fv);
+//			s.getTransaction().commit();
+//			s.close();
+		
+		s.save(usr);
 		s.getTransaction().commit();
 		s.close();
 		
-		ud = null;
-		 s = sf.openSession();
+		s = sf.openSession();
 		s.beginTransaction();
-		ud = s.get(UserDetails.class, 1);
-		System.out.println("User retrieved is "+ ud);
+		UserTest usr1 = s.get(UserTest.class, 1);
+		s.getTransaction().commit();
 		s.close();
 		
-		 s = sf.openSession();
-			s.beginTransaction();
-			s.save(u);
-			s.getTransaction().commit();
-			s.close();
-			
-			u = null;
-			 s = sf.openSession();
-			s.beginTransaction();
-			u = s.get(UserWithListOfAddress.class, 1);
-			System.out.println("UserWithListOfAddress retrieved is "+ u);
-			s.close();
-			
-			s = sf.openSession();
-			s.beginTransaction();
-			s.save(v);
-			s.getTransaction().commit();
-			s.close();
-			
-			s = sf.openSession();
-			s.beginTransaction();
-			s.save(tv);
-			s.getTransaction().commit();
-			s.close();
-			
-			s = sf.openSession();
-			s.beginTransaction();
-			s.save(fv);
-			s.getTransaction().commit();
-			s.close();
+		//usr1.setName("changed Name");
 		
-		
+		s = sf.openSession();
+		s.beginTransaction();
+		 s.update(usr1);
+		s.getTransaction().commit();
+		s.close();
 	}
 
 }
