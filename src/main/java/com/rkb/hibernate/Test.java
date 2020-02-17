@@ -10,6 +10,9 @@ import com.rkb.Address;
 import com.rkb.LoginCredentials;
 import com.rkb.UserDetails;
 import com.rkb.UserWithListOfAddress;
+import com.rkb.inheritance.FourWheelers;
+import com.rkb.inheritance.TwoWheelers;
+import com.rkb.inheritance.Vechile;
 
 public class Test {
 
@@ -46,6 +49,15 @@ public class Test {
 	u.getAddresses().add(addr);
 	u.getAddresses().add(addr2);
 	
+	Vechile v = new Vechile();
+	v.setName("testVechile");
+	
+	TwoWheelers tv = new TwoWheelers();
+	tv.setType("bike");
+	
+	FourWheelers fv = new FourWheelers();
+	fv.setType("car");
+	
 	
 	
 	SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -73,7 +85,25 @@ public class Test {
 			s.beginTransaction();
 			u = s.get(UserWithListOfAddress.class, 1);
 			System.out.println("UserWithListOfAddress retrieved is "+ u);
-			s.close();	
+			s.close();
+			
+			s = sf.openSession();
+			s.beginTransaction();
+			s.save(v);
+			s.getTransaction().commit();
+			s.close();
+			
+			s = sf.openSession();
+			s.beginTransaction();
+			s.save(tv);
+			s.getTransaction().commit();
+			s.close();
+			
+			s = sf.openSession();
+			s.beginTransaction();
+			s.save(fv);
+			s.getTransaction().commit();
+			s.close();
 		
 		
 	}

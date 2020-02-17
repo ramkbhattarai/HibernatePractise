@@ -56,7 +56,9 @@
 		
 		<mapping class="com.rkb.UserDetails"/>
 		<mapping class="com.rkb.UserWithListOfAddress"/>
-		<mapping class="com.rkb.Vechile"/>
+		<mapping class="com.rkb.inheritance.Vechile"/>
+		<mapping class="com.rkb.inheritance.TwoWheelers"/>
+		<mapping class="com.rkb.inheritance.FourWheelers"/>
 	</session-factory>
 
 </hibernate-configuration>
