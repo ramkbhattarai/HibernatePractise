@@ -55,7 +55,8 @@
 		-->
 		
 		<mapping class="com.rkb.UserDetails"/>
-		
+		<mapping class="com.rkb.UserWithListOfAddress"/>
+		<mapping class="com.rkb.Vechile"/>
 	</session-factory>
 
 </hibernate-configuration>
