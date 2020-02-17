@@ -54,9 +54,11 @@ public class Test {
 	
 	TwoWheelers tv = new TwoWheelers();
 	tv.setType("bike");
+	tv.setName("honda");
 	
 	FourWheelers fv = new FourWheelers();
 	fv.setType("car");
+	fv.setName("apache");
 	
 	
 	
